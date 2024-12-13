@@ -1,0 +1,69 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('bg.webp');
+}
+
+/* Chronomètre */
+.chrono {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: white;
+}
+
+/* Conteneur des cartes */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+	gap: 10px;
+	padding: 1px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width:336px;
+	height:720px;
+}
+
+/* Conteneur d'une carte */
+.carte-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; 
+    background-color: black;
+    border: 2px solid;
+    box-shadow: 0 4px 6px black;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Image de la carte */
+.carte-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Styles pour les cartes sélectionnées */
+.carte-container.selected {
+    border-color: #6c6;
+    box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.5);
+}
+
+/* Styles pour les cartes associées */
+.carte-container.matched {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.carte-container.matched img {
+    visibility: hidden; /* Rendre les images associées invisibles */
+}
