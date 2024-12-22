@@ -1,9 +1,21 @@
-const dbFire =
-  "https://alpha-javascript-default-rtdb.europe-west1.firebasedatabase.app/";
+const mongoose = require("mongoose");
+
+// URL de votre MongoDB locale
+const dbMongo = "mongodb://127.0.0.1:27017/db_demo";
+
+// Connexion à MongoDB
+mongoose
+    .connect(dbMongo, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log("Connexion à MongoDB réussie !");
+    })
+    .catch((err) => {
+      console.error("Erreur de connexion à MongoDB :", err);
+    });
 const noeud = "personnes";
 
-//affiche();
-let data = {};
+const Product = mongoose.model({prenom: String}, {name: String}, {status: Boolean});
+
 //---------
 class Personne {
   constructor(prenom, nom) {
@@ -101,10 +113,7 @@ const loadFire = async () => {
   afficherHTML();
 }
 
-loadFire();
-//----------------
-// const data = localStorage.getItem('personnes');
-// if (data) {
-//   personnes = JSON.parse(data);
-//   afficherHTML();
-// }
+// lancer la BDD mongo
+app.listen(3000, () =>  {
+  console.log("le serveur a démarré")
+});
